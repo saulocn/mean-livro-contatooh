@@ -2,7 +2,12 @@
 	<h1 class="text-center">Bem-vindo ao Contatooh</h1>
 </div>
 <button class="btn btn-primary" ng-click="incrementa()">Novo</button>
-<p>Contatos cadastrados {{total}}</p>
+<p ng-show="contatos.length">Contatos cadastrados {{contatos.length}}</p>
+
+<p class="text-info" ng-hide="contatos.length">
+	Não há contatos cadastrados!
+</p>
+
 <input type="search" placeholder="Filtro" ng-model="filtro">
 <div class="table-responsive">
 	<table class="table table-hover">
@@ -21,7 +26,7 @@
 				{{contato.email}}
 			</td>
 			<td class="text-center">
-				<button class="btn btn-warning">
+				<button class="btn btn-warning" ng-click="remove(contato)">
 					Remover
 				</button>
 			</td>
