@@ -1,7 +1,11 @@
 <div class="jumbotron">
 	<h1 class="text-center">Bem-vindo ao Contatooh</h1>
 </div>
-<button class="btn btn-primary" ng-click="incrementa()">Novo</button>
+
+<p ng-show="mensagem.texto">
+	{{mensagem.texto}}
+</p>
+<a class="btn btn-primary" ng-href="#/contato/" >Novo</a>
 <p ng-show="contatos.length">Contatos cadastrados {{contatos.length}}</p>
 
 <p class="text-info" ng-hide="contatos.length">
@@ -18,7 +22,7 @@
 		</tr>
 		<tr ng-repeat="contato in contatos | filter:filtro">
 			<td>
-				<a href="#">
+				<a ng-href="#/contato/{{contato._id}}">
 					{{contato.nome}}
 				</a>
 			</td>
