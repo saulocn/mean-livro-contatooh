@@ -10,6 +10,10 @@ angular.module('contatooh').controller('ContatoController', 	function($scope, $r
 		$scope.contato = new Contato();
 	}
 
+	Contato.query(function(contatos){
+		$scope.contatos = contatos;
+	});
+
 	function getContato(idContato){
 		Contato.get(
 			{id:idContato},
