@@ -1,5 +1,6 @@
 angular.module('contatooh', ['ngRoute', 'ngResource'])
-.config(function($routeProvider){
+.config(function($routeProvider, $httpProvider){
+	$httpProvider.interceptors.push('githubInterceptor');
 	$routeProvider.when('/contatos', {
 		templateUrl:'partials/contatos.html',
 		controller: 'ContatosController'
